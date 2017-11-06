@@ -1,0 +1,132 @@
+/*
+created by: karina
+created date: 10/14/17
+*/
+
+@import "../../../stylesheets/variables.less";
+
+html {
+
+  & > body {
+
+    div.white-box-body {
+      //font-family: "Gotham SSm", sans-serif;
+      //font-weight: lighter;
+      background-color: @brand-white-gray;
+      color: @brand-gray-med;
+      padding-bottom: 60px;
+
+      &.compensate-single-nav {
+        padding-top: 100px;
+      }
+
+      &.compensate-dual-nav {
+        padding-top: 140px;
+      }
+
+      & > .container {
+        background-color: @brand-white;
+        border-radius: 2px;
+        border: 1px solid @brand-white-gray;
+        padding: 30px 60px;
+
+        &.white-box-body-lg {
+          width: 75%;
+        }
+
+        &.white-box-body-md {
+          width: 60%;
+        }
+
+        &.white-box-body-sm {
+          width: 45%;
+        }
+
+        .control-label {
+          padding-top: 5px;
+        }
+
+      }
+
+      .white-box-title {
+        text-align: center;
+        width: 100%;
+        //font-size: 1.6em;
+      }
+
+      .white-box-tagline {
+        text-align:center;
+        width: 100%;
+        //font-size: .9em;
+      }
+
+      .white-box-buttons {
+        text-align:right;
+      }
+
+    }
+
+    @media @breakpoint-xs {
+      div.white-box-body {
+        min-height: @screen-height-xs;
+        //padding-bottom: @footer-height-xs;
+
+        & > .container {
+          padding: 10px 20px;
+
+          &.white-box-body-lg, &.white-box-body-md, &.white-box-body-sm {
+            width: 95%;
+          }
+        }
+
+        //at xs everything gets put into the hamburger menu
+        &.compensate-dual-nav {
+          padding-top: 60px;
+        }
+      }
+    }
+
+    @media @breakpoint-sm {
+      div.white-box-body {
+        min-height: @screen-height-sm;
+        //padding-bottom: @footer-height-sm;
+
+        & > .container {
+          &.white-box-body-lg, &.white-box-body-md, &.white-box-body-sm {
+            width: 85%;
+          }
+        }
+      }
+    }
+
+    @media @breakpoint-md {
+      div.white-box-body {
+        min-height: @screen-height-md;
+        //padding-bottom: @footer-height-md;
+      }
+    }
+
+    @media @breakpoint-lg {
+
+      div.white-box-body {
+        & > .container {
+
+          &.white-box-body-lg {
+            width: 75%;
+          }
+
+          &.white-box-body-md {
+            width: 60%;
+          }
+
+          &.white-box-body-sm {
+            width: 45%;
+          }
+
+        }
+      }
+    }
+
+
+  }
+}

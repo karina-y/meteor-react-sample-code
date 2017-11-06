@@ -1,0 +1,45 @@
+/*
+created by: karina
+created date: 10/14/17
+*/
+
+@import "../../../stylesheets/variables.less";
+
+html {
+
+  & > body {
+
+    div.full-width-page {
+      width: 100%;
+      overflow-x: auto;
+
+      &.compensate-single-nav {
+        padding-top: 50px;
+      }
+
+      &.compensate-dual-nav {
+        padding-top: 90px;
+      }
+
+
+      .row {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+      }
+    }
+
+  }
+
+  @media @breakpoint-xs {
+    & > body {
+      div.full-width-page {
+
+        //at xs everything gets put into the hamburger menu
+        &.compensate-dual-nav {
+          padding-top: 60px;
+        }
+
+      }
+    }
+  }
+}

@@ -1,0 +1,624 @@
+@import "variables.less";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+
+html {
+  //both for sticky footer
+  height: 100%;
+  margin: 0;
+
+  & > head {
+
+  }
+
+  & > body {
+    //both for sticky footer
+    height: 100%;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: @font-sm;
+
+    .custom-scrollbar {
+
+      ::-webkit-scrollbar {
+        width: 20px;
+      }
+      ::-webkit-scrollbar-track {
+        background: @brand-white-gray;
+        border-left: 7px solid @brand-white;
+        border-right: 7px solid @brand-white;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: @brand-orange;
+        border-radius: 8px;
+        border-left: 5px solid @brand-white;
+        border-right: 5px solid @brand-white;
+      }
+    }
+
+    div#react-root {
+      min-height: 100%; //for sticky footer
+
+      div.App {
+        padding-bottom: 60px; //for sticky footer
+
+        //inherited from scss
+        & > .container {
+          margin-bottom: 20px;
+        }
+
+      }
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(229, 83, 0, 0.75), rgba(0, 0, 0, 0));
+    }
+
+    //#region font defaults
+    p {
+      font-size: 1.25em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Work Sans', sans-serif !important;
+    }
+
+    .hero-title {
+      margin: 0;
+      padding: 13px 3px;
+      font-size: 5em;
+      font-weight: bold;
+      color: @brand-white !important;
+      letter-spacing: 5px;
+      font-family: 'Oswald' !important;
+      text-transform: uppercase;
+    }
+
+    .hero-tagline {
+      display: block;
+      font-family: 'Muli' !important;
+      color: @brand-white;
+      font-size: 1.3em;
+    }
+
+    .detail-quick-info {
+      font-size: @font-sm;
+
+      span.quick-info-label {
+        font-weight: bold;
+      }
+
+      .row {
+        margin: 8px 0 !important;
+      }
+    }
+
+    .quick-info-label {
+      font-weight: bold;
+    }
+    //#endregion
+
+    .row-padding-15 {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .margin-bottom-10 {
+      margin-bottom: 10px;
+    }
+
+    //#region scroll effect for browse lists
+    .scroll-top > div {
+      position: fixed;
+      bottom: 30px;
+      right: 25px;
+      display: block;
+      cursor: pointer;
+      z-index: 999;
+      width: 46px;
+      height: 46px;
+      line-height: 43px;
+      font-size: 24px;
+      border-radius: 50%;
+      background: @brand-gray-med; //#3D3C3A
+      border: solid 1px @brand-gray-med; //#3D3C3A
+      transition: all 0.35s ease-in-out;
+      -webkit-transition: all 0.35s ease-in-out;
+      text-align: center;
+      color: @brand-white;
+
+      &:hover {
+        background-color: @brand-purple;
+        color: @brand-white;
+        border: solid 1px @brand-white;
+        -webkit-transition: background-color .35s ease-out;
+        -moz-transition: background-color .35s ease-out;
+        -o-transition: background-color .35s ease-out;
+        transition: background-color .35s ease-out;
+      }
+    }
+    //#endregion
+
+    //#region anchor defaults and effects
+    a {
+      color: inherit;
+
+      &:hover, &:active, &:focus, &::selection {
+        color: @brand-orange;
+        background-color: inherit;
+        text-decoration: none;
+      }
+    }
+
+    .purple-link {
+      color: @brand-purple;
+    }
+
+    .orange-link {
+      color: @brand-orange;
+    }
+
+    .hyperlink-btn {
+      padding: 0 5px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .delete-link {
+      color: @brand-orange-dark;
+    }
+
+    .add-link {
+      color: @brand-orange-dark;
+      display: block;
+    }
+
+    .edit-link {
+      color: @brand-purple;
+    }
+
+    .btn.edit-link:hover, .btn.edit-link:focus, .btn.edit-link:active {
+      color: @brand-purple-dark;
+    }
+
+    .btn.delete-link:hover, .btn.delete-link:focus, .btn.delete-link:active {
+      color: @brand-orange-dark;
+    }
+
+    .link-hover-orange {
+      color: inherit;
+
+      &:hover, &:focus, &::selection {
+        color: @brand-orange-dark !important;
+      }
+    }
+
+    .link-hover-purple {
+      color: inherit;
+
+      &:hover, &:focus, &::selection {
+        color: @brand-purple-dark !important;
+      }
+    }
+
+    .blurred {
+      filter: blur(3px);
+      opacity: .3;
+    }
+
+    .blurred-x2 {
+      filter: blur(6px);
+    }
+
+    .blurred-x3 {
+      filter: blur(9px);
+    }
+
+    .blurred-x4 {
+      filter: blur(12px);
+    }
+    //#endregion
+
+    //#region buttons and anchors
+    .btn-bg-hero {
+      text-transform: uppercase;
+      padding: 8px 56px;
+      border-color: @brand-orange-dark;
+      font-size: 22px !important;
+      background-color: @brand-white !important;
+      border-radius: 26px;
+      border: none !important;
+      box-shadow: none !important;
+      color: @brand-orange;
+      font-family: 'Oswald' !important;
+      font-weight: bold;
+      letter-spacing: .5px;
+
+      &:hover {
+        color: @brand-orange !important;
+      }
+    }
+
+    .btn-md {
+      padding: 10px 38px;
+    }
+
+    .btn-bg-orange {
+      color: @brand-white;
+      background-color: @brand-orange;
+      border: 1px solid @brand-orange;
+
+      &:hover, &:focus, &::selection, &:active {
+        color: @brand-white !important;
+        background-color: @brand-orange-dark;
+        border: 1px solid @brand-orange-dark;
+      }
+    }
+
+    .btn-bg-purple {
+      color: @brand-white;
+      background-color: @brand-purple;
+      border: 1px solid @brand-purple;
+
+      &:hover, &:focus, &::selection, &:active {
+        color: @brand-white !important;
+        background-color: @brand-purple-dark;
+        border: 1px solid @brand-purple-dark;
+      }
+    }
+
+    .btn-bg-orange-invert {
+      color: @brand-orange;
+      background-color: @brand-white;
+      border: 1px solid @brand-white;
+
+      &:hover, &:focus, &::selection, &:active {
+        color: @brand-orange-dark !important;
+        background-color: @brand-white;
+        border: 1px solid @brand-white;
+      }
+    }
+
+    .btn-bg-purple-invert {
+      color: @brand-purple;
+      background-color: @brand-white;
+      border: 1px solid @brand-white;
+
+      &:hover, &:focus, &::selection, &:active {
+        color: @brand-white !important;
+        background-color: @brand-purple-dark;
+        border: 1px solid @brand-purple-dark;
+      }
+    }
+
+    .btn-bg-purple-invert-no-hover {
+      color: @brand-purple;
+      background-color: @brand-white;
+      border: 1px solid @brand-white;
+
+      &:hover, &:focus, &::selection, &:active {
+        color: @brand-purple !important;
+        background-color: @brand-white;
+        border: 1px solid @brand-white;
+      }
+    }
+
+    .btn-bg-dark-gray {
+      color: @brand-white;
+      background-color: @brand-gray-med;
+      border: 1px solid @brand-gray-med;
+
+      &:hover, &:focus, &::selection, &:active {
+        color: @brand-white !important;
+        background-color: @brand-black;
+        border: 1px solid @brand-black;
+      }
+    }
+
+    .btn-bg-dark-gray {
+      color: @brand-white;
+      background-color: @brand-gray-med; //#474644
+      border: 1px solid @brand-gray-med; //#474644
+
+      &:hover, &:focus, &::selection, &:active {
+        color: @brand-white !important;
+        background-color: @brand-gray-dark; //#292827
+        border: 1px solid @brand-gray-dark; //#292827
+      }
+    }
+
+    .btn-md {
+      padding: 10px 0;
+      width: 150px;
+    }
+
+    .btn-fat {
+      padding: 15px 29px;
+      font-size: 1.2em;
+    }
+
+    .btn-wide {
+      min-width: 250px;
+      font-size: 1.2em;
+    }
+    //#endregion
+
+    //#region general helpers
+    .no-padding {
+      padding: 0;
+    }
+
+    .no-margin {
+      margin: 0 !important;
+    }
+
+    .no-margin-top {
+      margin-top: 0 !important;
+    }
+
+    .no-margin-bottom {
+      margin-bottom: 0 !important;
+    }
+
+    .no-margin-top-bottom {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .no-margin-left {
+      margin-left: 0 !important;
+    }
+
+    .no-margin-right {
+      margin-right: 0 !important;
+    }
+
+    .no-margin-left-right {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    //if you're unsure how to use the vertical centering helpers, ask karina
+    .vertical-center-outer {
+      top: -50%;
+      -ms-transform: translateY (50%);
+      -webkit-transform: translateY (50%);
+      -moz-transform: translateY (50%);
+      -o-transform: translateY (50%);
+      transform: translateY(50%);
+      position: relative;
+      display: inline-block;
+    }
+
+    .vertical-center-outer-block {
+      top: -50%;
+      -ms-transform: translateY (50%);
+      -webkit-transform: translateY (50%);
+      -moz-transform: translateY (50%);
+      -o-transform: translateY (50%);
+      transform: translateY(50%);
+      position: relative;
+      display: block;
+    }
+
+    .vertical-center-inner {
+      top: 50%;
+      -ms-transform: translateY (-50%);
+      -webkit-transform: translateY (-50%);
+      -moz-transform: translateY (-50%);
+      -o-transform: translateY (-50%);
+      transform: translateY(-50%);
+      position: relative;
+      display: inline-block;
+    }
+
+    .vertical-center-inner-block {
+      top: 50%;
+      -ms-transform: translateY (-50%);
+      -webkit-transform: translateY (-50%);
+      -moz-transform: translateY (-50%);
+      -o-transform: translateY (-50%);
+      transform: translateY(-50%);
+      position: relative;
+      display: block;
+    }
+
+    .capitalize {
+      text-transform: capitalize;
+    }
+
+    .uppercase {
+      text-transform: uppercase;
+    }
+
+    .lowercase {
+      text-transform: lowercase;
+    }
+    //#endregion
+
+    @media @breakpoint-xs {
+
+      div#react-root {
+
+        div.App {
+          padding-bottom: @footer-height-xs; //for sticky footer
+        }
+      }
+
+      .scroll-top > div {
+        bottom: 69px;
+        right: 12px;
+      }
+
+      //#region general helpers
+      .vertical-center-outer-xs {
+        top: -50%;
+        -ms-transform: translateY (50%);
+        -webkit-transform: translateY (50%);
+        -moz-transform: translateY (50%);
+        -o-transform: translateY (50%);
+        transform: translateY(50%);
+        position: relative;
+        display: inline-block;
+      }
+
+      .vertical-center-outer-block-xs {
+        top: -50%;
+        -ms-transform: translateY (50%);
+        -webkit-transform: translateY (50%);
+        -moz-transform: translateY (50%);
+        -o-transform: translateY (50%);
+        transform: translateY(50%);
+        position: relative;
+        display: block;
+      }
+
+      .vertical-center-inner-xs {
+        top: 50%;
+        -ms-transform: translateY (-50%);
+        -webkit-transform: translateY (-50%);
+        -moz-transform: translateY (-50%);
+        -o-transform: translateY (-50%);
+        transform: translateY(-50%);
+        position: relative;
+        display: inline-block;
+      }
+
+      .vertical-center-inner-block-xs {
+        top: 50%;
+        -ms-transform: translateY (-50%);
+        -webkit-transform: translateY (-50%);
+        -moz-transform: translateY (-50%);
+        -o-transform: translateY (-50%);
+        transform: translateY(-50%);
+        position: relative;
+        display: block;
+      }
+
+      //#endregion
+    }
+
+    @media @breakpoint-sm {
+
+      div#react-root {
+
+        div.App {
+          padding-bottom: @footer-height-sm; //for sticky footer
+        }
+      }
+
+      //#region general helpers
+      .vertical-center-outer-sm {
+        top: -50%;
+        -ms-transform: translateY (50%);
+        -webkit-transform: translateY (50%);
+        -moz-transform: translateY (50%);
+        -o-transform: translateY (50%);
+        transform: translateY(50%);
+        position: relative;
+        display: inline-block;
+      }
+
+      .vertical-center-outer-block-sm {
+        top: -50%;
+        -ms-transform: translateY (50%);
+        -webkit-transform: translateY (50%);
+        -moz-transform: translateY (50%);
+        -o-transform: translateY (50%);
+        transform: translateY(50%);
+        position: relative;
+        display: block;
+      }
+
+      .vertical-center-inner-sm {
+        top: 50%;
+        -ms-transform: translateY (-50%);
+        -webkit-transform: translateY (-50%);
+        -moz-transform: translateY (-50%);
+        -o-transform: translateY (-50%);
+        transform: translateY(-50%);
+        position: relative;
+        display: inline-block;
+      }
+
+      .vertical-center-inner-block-sm {
+        top: 50%;
+        -ms-transform: translateY (-50%);
+        -webkit-transform: translateY (-50%);
+        -moz-transform: translateY (-50%);
+        -o-transform: translateY (-50%);
+        transform: translateY(-50%);
+        position: relative;
+        display: block;
+      }
+
+      //#endregion
+    }
+
+    @media @breakpoint-md {
+      div#react-root {
+
+        div.App {
+          padding-bottom: @footer-height-md; //for sticky footer
+        }
+      }
+
+      //#region general helpers
+      .vertical-center-outer-md {
+        top: -50%;
+        -ms-transform: translateY (50%);
+        -webkit-transform: translateY (50%);
+        -moz-transform: translateY (50%);
+        -o-transform: translateY (50%);
+        transform: translateY(50%);
+        position: relative;
+        display: inline-block;
+      }
+
+      .vertical-center-outer-block-md {
+        top: -50%;
+        -ms-transform: translateY (50%);
+        -webkit-transform: translateY (50%);
+        -moz-transform: translateY (50%);
+        -o-transform: translateY (50%);
+        transform: translateY(50%);
+        position: relative;
+        display: block;
+      }
+
+      .vertical-center-inner-md {
+        top: 50%;
+        -ms-transform: translateY (-50%);
+        -webkit-transform: translateY (-50%);
+        -moz-transform: translateY (-50%);
+        -o-transform: translateY (-50%);
+        transform: translateY(-50%);
+        position: relative;
+        display: inline-block;
+      }
+
+      .vertical-center-inner-block-md {
+        top: 50%;
+        -ms-transform: translateY (-50%);
+        -webkit-transform: translateY (-50%);
+        -moz-transform: translateY (-50%);
+        -o-transform: translateY (-50%);
+        transform: translateY(-50%);
+        position: relative;
+        display: block;
+      }
+
+      //#endregion
+    }
+
+    @media @breakpoint-lg {
+
+    }
+
+  }
+}

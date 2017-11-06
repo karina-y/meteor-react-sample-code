@@ -1,0 +1,97 @@
+/*
+created by: karina
+created date: 10/4/17
+*/
+
+@import '../../stylesheets/variables.less';
+
+.white-box-body {
+
+  & > div.public-profile-container {
+
+    img.company-cover-photo {
+      max-height: 250px;
+    }
+
+    .description-container {
+      margin-top: 15px;
+    }
+  }
+
+  .candidate-public-profile-container {
+    img.candidate-cover-photo {
+      max-height: 200px;
+    }
+
+    .candidate-header {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .company-public-profile-container {
+    .upload-main-profile-photo-container {
+
+      .filepicker.dropzone.dz-clickable {
+        padding: 0 !important;
+
+        .dz-default.dz-message{
+          margin: 0 !important;
+
+          .dz-msg-container {
+            margin: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  @media @breakpoint-xs {
+    div.detail-quick-info {
+      font-size: @font-xs;
+      padding: 0;
+
+      & > .container-fluid {
+        padding: 10px 0;
+
+        .quick-info-label {
+          display: block;
+        }
+
+        .edit-profile-link {
+          margin-top: 10px;
+        }
+      }
+    }
+
+
+    .candidate-public-profile-container {
+
+      .candidate-header {
+
+        .edit-profile-link {
+          margin: 20px 0;
+        }
+      }
+    }
+  }
+
+  @media @breakpoint-sm {
+    div.detail-quick-info {
+      font-size: 1.3em;
+      padding-top: 10px;
+
+      & > .container-fluid {
+
+        .quick-info-label {
+        }
+
+        .edit-profile-link {
+          margin-top: 10px;
+          float: left;
+        }
+      }
+    }
+  }
+
+}

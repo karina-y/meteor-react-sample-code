@@ -1,0 +1,118 @@
+/*
+created by: karina
+created date: 8/3/17
+*/
+
+//#region breakpoints
+//taken from bootstrap
+@breakpoint-xs: ~"only screen and (max-width: 767px)";
+@breakpoint-sm: ~"only screen and (min-width: 768px)";
+@breakpoint-md: ~"only screen and (min-width: 992px)";
+@breakpoint-lg: ~"only screen and (min-width: 1200px)";
+//#endregion
+
+
+//#region colors
+//betagig colors
+@brand-purple: #B048B5;
+@brand-purple-dark: #9E48B5;
+@brand-orange: #E65100;
+@brand-orange-dark: #E62B00;
+@brand-success: #75BA50;
+@brand-error: #DA5347;
+@brand-yellow: #FAD131;
+@brand-info: #1B9EDB;
+@brand-white: #FFF;
+@brand-black: #000;
+
+@brand-white-ice: #e7f4ff;
+@brand-white-gray: #f3f3f3;
+@brand-gray-light: #dddddd;
+@brand-gray-light-med: #bbbbbb;
+@brand-gray: #9A9A9A;
+@brand-gray-med: #4c4c4c;
+@brand-gray-dark: #222222;
+
+@brand-blue: #4EE2EC;
+@brand-green: #5CB85C;
+
+//admin colors
+@admin-teal: #1bacab;
+@admin-teal-dark: #106767;
+@admin-blue: #3a91df;
+@admin-blue-dark: #235786;
+@admin-purple: #737db4;
+@admin-purple-dark: #454b6c;
+@admin-red: #fc5c5b;
+@admin-red-dark: #973737;
+
+//other colors
+@brand-gradient-color: rgba(255,196,0, 0.5), rgba(229, 83, 0, 0.6);
+@brand-gradient: linear-gradient(to right, rgba(255,196,0, 0.5), rgba(229, 83, 0, 0.6));
+
+//pup stock colors
+@pup-primary: #337ab7;
+@pup-success: #5cb85c;
+@pup-info:    #5bc0de;
+@pup-warning: #f0ad4e;
+@pup-danger:  #d9534f;
+
+@pup-gray-darker: #222;
+@pup-gray-dark: #333;
+@pup-gray: #555;
+@pup-gray-light: #777;
+@pup-gray-lighter: #eee;
+
+@pup-facebook: #3b5998;
+@pup-google: #ea4335;
+@pup-github: @pup-gray-dark;
+
+@pup-cb-blue: #4285F4;
+@pup-cb-green: #00D490;
+@pup-cb-yellow: #FFCF50;
+@pup-cb-red: #DA5847;
+
+//#endregion
+
+
+//#region font-sizes
+@font-xxs: .75em;
+@font-xs: 1em;
+@font-sm: 1.5em;
+@font-md: 2em;
+@font-lg: 3em;
+@font-xl: 4em;
+//#endregion
+
+
+//#region images
+//color logos
+@brand-logo-heart-text: "/images/sitewide/betagig-logos/Color/betagig-with-heart.png";
+@brand-logo-heart-sm: "/images/sitewide/betagig-logos/Color/betagig-icon-x57.png";
+@brand-logo-heart-md: "/images/sitewide/betagig-logos/Color/betagig-icon-x72.png";
+@brand-logo-heart-lg: "/images/sitewide/betagig-logos/Color/betagig-icon.png";
+@brand-logo-heart-xl: "/images/sitewide/betagig-logos/Color/betagig-icon-xl.png";
+@brand-logo-text: "/images/sitewide/betagig-logos/Color/betagig-text.png";
+//#endregion
+
+//#region helpers
+//@screen-height-without-sub-header: ~"calc(100vh - 60px)";
+
+//screen heights
+//***IMPORTANT - this needs to stay at 100vh-FOOTERHEIGHTpx regardless of the header height - ky
+//  the calculation only subtracts from the bottom, not equally from the top and bottom, so it should always subtract the footer height ONLY
+@screen-height-xs: ~"calc(100vh - 577px)";
+@screen-height-sm: ~"calc(100vh - 303px)";
+@screen-height-md: ~"calc(100vh - 204px)"; //used at md and up
+
+//navbar heights
+@single-nav-height: 50px;
+@single-nav-up-height: -50px;
+@double-entire-nav-height: 90px;  //total height of 2 navbars
+@double-nav-up-height: -90px;  //should be the same as 'default-nav-height'
+
+//footer heights
+@footer-height-xs: 577px;
+@footer-height-sm: 303px;
+@footer-height-md: 204px;
+//#endregion
