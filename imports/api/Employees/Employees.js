@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 8/23/17
-*/
-
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import Companies from '../Companies/Companies';
@@ -15,7 +10,6 @@ Employees.helpers({
         return Meteor.users.findOne(
             { _id: this.userId }
         );
-        // return Meteor.users.find({}).fetch();
     },
     company() {
         return Companies.findOne(

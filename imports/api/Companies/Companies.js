@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 8/23/17
-*/
-
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import Employees from '../Employees/Employees';

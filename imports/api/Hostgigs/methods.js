@@ -5,24 +5,16 @@ import rateLimit from '../../modules/rate-limit';
 
 Meteor.methods({
     'signup.hostgigs.insert': function hostgigsInsert(hostgig) {
-        //console.log('inside of signup.hostgigs.insert', hostgig);
-
         hostgig.experienceLevel = parseInt(hostgig.experienceLevel);
         hostgig.educationLevel = parseInt(hostgig.educationLevel);
 
         if (!Hostgigs.simpleSchema().newContext().validate(hostgig, keys=Object.keys(hostgig))){
             throw new Meteor.Error('500', "Invalid arguments passed");
         }
-        //commented this out because it wasn't allowing the insert to work - ky
-        // else {
-        //     console.log("checked the following keys: ",
-        //         Object.keys(hostgig), "what value does this return?: ",
-        //         !Hostgigs.simpleSchema().validate(hostgig, keys=Object.keys(hostgig)));
-        // }
 
         try {
+			//logging purposes only
             let onDoneFunction = function(err, response) {
-                //TODO add error
                 console.log(err, response, "Debugging tool - inside of signup.hostgigs.insert");
             };
             return Hostgigs.insert(hostgig, {}, onDoneFunction);
@@ -41,15 +33,13 @@ Meteor.methods({
 
 
         try {
-            //console.log("Setting Data: ", data);
+            //logging purposes only
             let onDoneFunction = function(err, response) {
                 console.log(err, response, "Debugging tool - inside of candidate methods.js");
             };
+			
             return Hostgigs.update(hostgigId, { $set: data }, onDoneFunction);
-            // Hostgigs.update(hostgigId, { $set: data });
-            // return hostgigId; // Return _id so we can redirect to betagig after update.
         } catch (exception) {
-            console.log("error: ", exception);
             throw new Meteor.Error('500', exception);
         }
     },

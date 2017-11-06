@@ -1,9 +1,3 @@
-/*
-created by: karina
-created date: 10/31/17
-*/
-
-
 import React from 'react';
 import {Grid, Col, Row, Image} from 'react-bootstrap';
 import { Bert } from 'meteor/themeteorchef:bert';

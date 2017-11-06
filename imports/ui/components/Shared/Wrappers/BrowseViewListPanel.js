@@ -1,12 +1,6 @@
-/*
-created by: karina
-created date: 10/15/17
-*/
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert, Button, Col } from 'react-bootstrap';
-// import Filters from './Filters';
 import { createContainer } from 'meteor/react-meteor-data';
 import Gig from '../../Hostgigs/Gig';
 

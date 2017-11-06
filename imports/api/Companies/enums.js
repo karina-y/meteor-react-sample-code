@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 9/23/17
-*/
-
 const CompanyEnums = { };
 
 const COMPANY_SIGNUP_ENUM = {

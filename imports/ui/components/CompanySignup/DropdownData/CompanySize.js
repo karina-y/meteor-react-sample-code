@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 9/11/17
-*/
-
 export function getCompanySizeArray() {
     const companySizeOptions = [
         {

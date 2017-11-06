@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 8/23/17
-*/
-
 const SharedEnums = { };
 
 const EDUCATION_LEVEL_ENUM = {

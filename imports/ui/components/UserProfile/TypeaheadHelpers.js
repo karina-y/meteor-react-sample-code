@@ -50,7 +50,6 @@ export function convertIntOrStringToEnum (enumsArr, arrayOfOneObject) {
         const result = EnumConversionHelpers.displayNameToEnum(enumsArr, arrayOfOneObject[0]);
 
         if (result.error) {
-            //todo-ky add error
             Bert.alert("Woops something went wrong, please refresh and try again!", 'danger');
             return null;
         }
@@ -120,7 +119,6 @@ export function formatCandidateObj(candidateObj) {
                 const result = EnumConversionHelpers.enumToDisplayName(workAuthStatusEnums, candidateObj[k]);
 
                 if (result.error) {
-                    //todo-ky add error
                     Bert.alert("Woops something went wrong, please refresh and try again!", 'danger');
                 }
                 else {
@@ -133,7 +131,6 @@ export function formatCandidateObj(candidateObj) {
                 const result = EnumConversionHelpers.enumToDisplayName(experienceLevelEnums, candidateObj[k]);
 
                 if (result.error) {
-                    //todo-ky add error
                     Bert.alert("Woops something went wrong, please refresh and try again!", 'danger');
                 }
                 else {

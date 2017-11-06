@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 9/7/17
-*/
-
 export function getCompanyDefaultValues() {
     const companyDefaultValues = {
         companyName: "",

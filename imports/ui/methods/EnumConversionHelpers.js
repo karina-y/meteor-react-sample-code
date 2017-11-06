@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 10/2/17
-*/
-
 const EnumConversionHelpers = {};
 
 //receives enum and returns the appropriate display name

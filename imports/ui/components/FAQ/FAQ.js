@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 10/23/17
-*/
-
 import React from 'react';
 import WhiteBoxBody from "../Shared/Wrappers/WhiteBoxBody";
 import {Panel, PanelGroup} from "react-bootstrap";

@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 10/11/17
-*/
-
 import React from 'react';
 import BetagigListGroup from '../../components/BetagigListGroup/BetagigListGroup';
 import Tabs from '../../components/Tabs/Tabs';

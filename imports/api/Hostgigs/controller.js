@@ -19,7 +19,6 @@ Meteor.methods({
             Meteor.call('hostgigs.update', data, ( error, hostgigId ) => {
                 if( error ) {
                     ret.title = 'Failed';
-                    console.log("ERROR: ", error);
                     ret.message = error.reason;
                     return ret;
                 }
@@ -28,7 +27,6 @@ Meteor.methods({
             return ret;
 
         } catch (exception) {
-            console.log("Exception: ", exception);
             throw new Meteor.Error('500', exception);
         }
     },
@@ -41,14 +39,13 @@ Meteor.methods({
 
         try {
 
-            if( ! Hostgigs.simpleSchema().newContext().validate(hostgig,keys=Object.keys(hostgig))){
+            if (!Hostgigs.simpleSchema().newContext().validate(hostgig,keys=Object.keys(hostgig))) {
                 throw new Meteor.Error('500', "Invalid arguments passed");
             }
 
             Meteor.call('hostgigs.insert', hostgig, ( error, hostgigId ) => {
                 if( error ) {
                     ret.title = 'Failed';
-                    console.log("ERROR: ", error);
                     ret.message = error.reason;
                     return ret;
                 }

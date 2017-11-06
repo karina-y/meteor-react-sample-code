@@ -1,9 +1,3 @@
-/*
-created by: karina
-created date: 10/3/17
-*/
-
-
 const NullChecks = {};
 
 

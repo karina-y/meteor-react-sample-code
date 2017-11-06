@@ -69,12 +69,10 @@ export default createContainer((props) => {
 
         if (Meteor.userId()) {
             const candidateSubscription = Meteor.subscribe('candidate.view.byUserId', Meteor.userId());
-            // const userSubscription = Meteor.subscribe('user.view', Meteor.userId());
             let userObj = Meteor.users.find().fetch();
             let candidate = Candidate.find({'userId': Meteor.userId()}).fetch();
             let hasCompletedSignup = false;
 
-            //todo-ky findone
             if (!NullChecks.isNullOrEmptyArray(candidate) && candidate[0].completedSignUpSteps) {
                 hasCompletedSignup = (_.max(candidate[0].completedSignUpSteps) == candidateSignupEnums.uploadPicture.enum);
             }
@@ -114,7 +112,6 @@ export default createContainer((props) => {
             let company = Companies.find({_id: employeeSubscription.ready() ? employee[0].companyId : ''}).fetch();
             let hasCompletedSignup = false;
 
-            //todo-ky findone
             if (!NullChecks.isNullOrEmptyArray(company) && company[0].completedSignUpSteps) {
                 hasCompletedSignup = (_.max(company[0].completedSignUpSteps) == companySignupEnums.photosInfo.enum);
             }

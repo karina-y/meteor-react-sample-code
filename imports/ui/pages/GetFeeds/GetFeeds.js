@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 10/31/17
-*/
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { createContainer } from 'meteor/react-meteor-data';

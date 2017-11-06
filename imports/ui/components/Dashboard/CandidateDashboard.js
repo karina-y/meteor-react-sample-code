@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 10/11/17
-*/
-
 import React from 'react';
 import BetagigListGroup from '../../components/BetagigListGroup/BetagigListGroup';
 import Tabs from '../../components/Tabs/Tabs';
@@ -189,7 +184,6 @@ CandidateDashboard.propTypes = {
     loading: PropTypes.bool.isRequired,
     user: PropTypes.object.isRequired,
     userProfile: PropTypes.object.isRequired,
-    // companyAdminProfile: PropTypes.object.isRequired,
     betagigs: PropTypes.array.isRequired,
     betagigs_upcoming: PropTypes.array.isRequired,
     betagigs_pending: PropTypes.array.isRequired,

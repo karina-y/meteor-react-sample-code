@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 9/14/17
-*/
-
 import React from 'react';
 import { Row,
     Col,

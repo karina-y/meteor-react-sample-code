@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 10/4/17
-*/
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row,
@@ -21,7 +16,6 @@ import NotFound from '../../pages/NotFound/NotFound';
 import UserEnums from '../../../api/Users/enums';
 
 const userRoles = UserEnums.USER_ROLE_ENUM;
-
 
 class ViewProfile extends React.Component {
     constructor(props) {
@@ -67,7 +61,7 @@ class ViewProfile extends React.Component {
 
                     this.state.userRole === userRoles.employee ?
 
-                        //not yet implemented, putting not found for now
+                        //feature not yet implemented, just doing not found for now
                         <NotFound />
 
                         :

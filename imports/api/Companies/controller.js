@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 8/27/17
-*/
-
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import rateLimit from '../../modules/rate-limit';

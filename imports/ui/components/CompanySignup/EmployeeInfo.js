@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 8/18/17
-*/
-
 import React from 'react';
 import { Grid,
     Row,
@@ -24,12 +19,6 @@ import CompanyEnums from '../../../api/Companies/enums';
 
 const companySignupStepEnums = CompanyEnums.COMPANY_SIGNUP_ENUM;
 
-/*
-todo-ky
-- pass in button text and header as a prop
-    - will be using this in future use for company dashboard
-
-*/
 
 class EmployeeInfo extends React.Component {
     constructor(props) {
@@ -39,11 +28,6 @@ class EmployeeInfo extends React.Component {
         this.validateEmployeeInfo = this.validateEmployeeInfo.bind(this);
         this.updateEmployee = this.updateEmployee.bind(this);
         this.setStateVariables = this.setStateVariables.bind(this);
-
-        //todo-ky set all state properties to null, create a componentWillMount and assign the appropriate values to the state
-        //look at admin.js as an example
-        //props are acceptable as is accounts.userid() (so i don't need to change employeeinfo, but keep an eye out for the future)
-        //if you need to run any calculations/functions/etc, do it in componentwillmount
 
         this.state = {
             userId: Accounts.userId(),

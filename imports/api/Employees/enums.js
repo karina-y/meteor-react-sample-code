@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 9/23/17
-*/
-
 const EmployeeEnums = {};
 
 const EMPLOYEE_SIGNUP_ENUM = {

@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 10/4/17
-*/
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -40,12 +35,10 @@ class CompanyPublicProfile extends React.Component {
             //#1 - save photo to company object
             let companyObj = !NullChecks.isNullOrEmptyArray(this.state.userProfile) ? this.state.userProfile[0] : this.state.userProfile;
             companyObj.photos.mainProfilePhoto = result;
-            //console.log('about to send over companyObj', companyObj);
             let companyUpdateResult = Meteor.call('companies.update', companyObj);
 
             //#2 - update state so it has the uploaded photo + trigger component update + display imagen
             this.setState({userProfile: companyObj}, ()=>{
-                //console.log('fjdlfjsld', this.state.userProfile.photos)
                 Bert.alert('File uploaded!', 'success');
             });
 
@@ -152,54 +145,11 @@ class CompanyPublicProfile extends React.Component {
             ]
         };
 
-        let dzDefaultPlaceholder = "<div class='dz-msg-container'><i class=\"fa fa-picture-o fa-3x\" aria-hidden=\"true\"></i><br/><br/> Add an image to showcase your team and work environment to potential candidates! <br/> <br/> <p class='small'>(Drop your image here or click here to select one!)</p></div>";
-
-        if (mainProfilePhoto) {
-            dzDefaultPlaceholder = "<Image responsive src='" + mainProfilePhoto + "' className=\"company-main-profile-photo\" title='Click here to select another image' />";
-        }
-
-        // const dzConfigObj = {
-        //     //https://github.com/felixrieseberg/React-Dropzone-Component
-        //     componentConfig:{
-        //         postUrl: 'no-url',
-        //         showFiletypeIcon: false
-        //     },
-        //     eventHandlers:{
-        //         "success": function(file) {
-        //             //this.removeAllFiles();
-        //         },
-        //     },
-        //     //http://www.dropzonejs.com/#events
-        //     djsConfig:{
-        //         autoProcessQueue: true,
-        //         uploadMultiple: false,
-        //         dictDefaultMessage: dzDefaultPlaceholder,
-        //         maxfilesexceeded: function(file) {
-        //             this.removeAllFiles();
-        //             this.addFile(file);
-        //         },
-        //         parallelUploads: 1,
-        //         maxFiles: 1,
-        //         acceptedFiles: "image/*"
-        //         //addRemoveLinks: true
-        //     }
-        // };
-
         return(
             <div className="company-public-profile-container">
                 {/* company logo / company quick info */}
                 <Row className="vertical-center-outer-block-md">
                     <Col md={6} className="vertical-center-inner-block-md">
-                        {/*<div className="upload-main-profile-photo-container">*/}
-                            {/*<Dropzone*/}
-                            {/*dzConfigObj={dzConfigObj}*/}
-                            {/*s3UploadCallback={this.s3UploadCallback}*/}
-                            {/*uploadDataType="image-uploads"*/}
-                            {/*metaContext={{*/}
-                            {/*'baseDirectory': 'company-profile-images/' + company._id*/}
-                            {/*}}*/}
-                            {/*/>*/}
-                        {/*</div>*/}
                         <Image responsive src={mainProfilePhoto} className="company-cover-photo" />
                     </Col>
 

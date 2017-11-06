@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 11/1/17
-*/
-
 import { Meteor } from 'meteor/meteor';
 import rateLimit from '../../modules/rate-limit';
 const Twitter = require('twitter');

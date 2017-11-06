@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 9/8/17
-*/
-
 export function getPhoneNumberTypeArray() {
     const phoneNumberTypeOptions = [
         {

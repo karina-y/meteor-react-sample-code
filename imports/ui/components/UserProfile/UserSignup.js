@@ -4,8 +4,6 @@ import { Grid,
     Col }
     from 'react-bootstrap';
 import PropTypes from 'prop-types';
-//import { Link } from 'react-router-dom';
-//import { Accounts } from 'meteor/accounts-base';
 import { Meteor } from 'meteor/meteor';
 import { Bert } from 'meteor/themeteorchef:bert';
 import StepZilla from 'react-stepzilla';
@@ -78,7 +76,6 @@ class UserSignup extends React.Component {
 
         let userObj = Meteor.user();
         let profileObj;
-        //todo-ky&&an add check for bonus terms agreements
 
         //check to see if user has already created a partial account with us and bring them up to their last saved step
         if (!NullChecks.isNullOrEmptyArray(candidateObjArr)) {
@@ -194,10 +191,6 @@ class UserSignup extends React.Component {
                     if (_.isEmpty(dataCollected) == false) {
                         let propsToReformatArr = ["school", "major", "degreeType"];
 
-                        //creates a DEEP COPY to keep an original version of the array
-                        // let originalEduArr = JSON.parse(JSON.stringify(dataCollected));
-
-                        //dataCollected.educationBackground gets changed/formatted and shipped to the db
                         _.each(dataCollected.educationBackground, function (edu, index) {
 
                             delete dataCollected.educationBackground[index].isValid;
@@ -212,10 +205,6 @@ class UserSignup extends React.Component {
                             });
                         });
 
-                        //updatedCandidate takes the original edubackgronud data (nonformatted)
-                        //and this is what is used to set state
-                        //updatedCandidate = Object.assign(currentCandidate, originalEduArr);
-                        //updatedCandidate = Object.assign(currentCandidate, originalDataCollected);
                     }
 
                     currentNameOfStep = candidateSignupStepEnums.education.enum;
@@ -251,11 +240,6 @@ class UserSignup extends React.Component {
                 case candidateSignupStepEnums.uploadPicture.enum:
                     currentNameOfStep = candidateSignupStepEnums.uploadPicture.enum;
                     break;
-
-                default:
-                    //TODO add default
-                    // console.log("switch statement default - current step does not have any typeahead elements - did not format anything!");
-                    break;
             }
 
             let returnedArray = this.updateCompletedSignUpSteps(userRoles.candidate, currentNameOfStep);
@@ -278,7 +262,7 @@ class UserSignup extends React.Component {
                             if (isOnLastStep == true && this.props.isOnSignupView) {
                                 Bert.alert('And that\'s a wrap!', 'success');
                                 Meteor.call('sendVerificationLink', (error, response) => {
-                                    // console.log("ERROR + RESPONSE:" + error, response);
+
                                     if (error) {
                                         Bert.alert(error, 'danger');
                                     } else {
@@ -291,7 +275,6 @@ class UserSignup extends React.Component {
                                             });
                                         }
 
-                                        // console.log(response, "EMAIL SUCCESS BLOCK");
                                         setTimeout(function () {
                                             component.props.history.push("/successful-registration");
                                         }, 1000);
@@ -492,7 +475,6 @@ class UserSignup extends React.Component {
                     methodToCall = "companies.update";
                     methodToCallId = companyId;
                     _.extend(currentCompany.photos, originalDataCollected.photos);
-                    //currentCompany.photos = mergedPhotos;
                     updatedCompany = currentCompany;
                     break;
 
@@ -502,8 +484,6 @@ class UserSignup extends React.Component {
                     methodToCall = "companies.update";
                     methodToCallId = companyId;
                     console.log('currentCompany', currentCompany, 'og data:', originalDataCollected)
-                    //_.extend(currentCompany.photos, originalDataCollected.photos);
-                    //currentCompany.photos = mergedPhotos;
                     updatedCompany = currentCompany;
                     break;
             }
@@ -669,9 +649,6 @@ class UserSignup extends React.Component {
 
     render() {
         //components we will be using for the Stepzilla library - https://github.com/newbreedofgeek/react-stepzilla
-
-        //todo-an&&ky - seems like updateCompletedSignUpSteps() is only called from Basic Info -
-        //may not need to pass it as a prop down to every component!
         let steps = [
             {
                 name: 'Basic Info',

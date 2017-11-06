@@ -1,15 +1,9 @@
-/*
-created by: karina
-created date: 8/25/17
-*/
-
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import rateLimit from '../../modules/rate-limit';
 import Employees from './Employees';
 import sendHtmlEmail from '../../../server/email';
 import { formatPhoneNumber } from '../../ui/methods/FormFieldsUiHelpers';
-//import { Roles } from 'meteor/alanning:roles';
 import UserEnums from '../Users/enums';
 
 const userRoles = UserEnums.USER_ROLE_ENUM;
@@ -43,14 +37,14 @@ Meteor.methods({
 
             //Make call to create the user object
             Meteor.call('users.addUser', userData, (error, userId) => {
-                //console.log('error', error, 'userId', userId);
+
                 if (error) {
-                    console.log('Error - inside of employeeController - addUserAndEmployee: ', error);
-                    //throw new Meteor.ValidationError(['500', error]);
-                    ret.title = 'Failed';
-                    ret.type = "Failed";
-                    ret.message = error;
-                    return ret;
+                    ret.title = "Error!";
+					ret.message = "error inserting employee";
+					ret.details = error;
+					ret.type = "error";
+
+					return ret;
                 }
                 if (userId) {
                     ret.userId = userId;
@@ -67,15 +61,17 @@ Meteor.methods({
                     };
 
                     Meteor.call('employees.insert', employeeData, (error, employeeId) => {
-                        if( error ) {
-                            console.log(error, "****");
-                            ret.title = 'Failed';
-                            ret.type = 'Failed';
-                            ret.message = error;
-                            throw new Meteor.ValidationError('500', error);
-                            //return ret;
+                        
+						if (error) {
+                            ret.title = "Error!";
+							ret.message = "error inserting employee";
+							ret.details = error;
+							ret.type = "error";
+							
+							return ret;
                         }
-                        ret.employeeId = employeeId;
+                        
+						ret.employeeId = employeeId;
 
                         const isEmployee = userData.roles.includes(userRoles.employee);
                         const isCompanyAdmin = userData.roles.includes(userRoles.companyAdmin);
@@ -91,7 +87,7 @@ Meteor.methods({
                             'email': userData.email,
                             'roles': s(adminOrEmployeeRole).trim().capitalize().value(),
                             'isActive': s(!isInactive).trim().capitalize().value(),
-                            'password': _defaultEmployeePassword, //todo- userData.password, //need to unhash OR bring it from settings-development.json
+                            'password': _defaultEmployeePassword,
                             'jobTitle': employeeData.details.jobTitle,
                             'phoneNum': (employeeData.details.phoneNumber) ? formatPhoneNumber(employeeData.details.phoneNumber) : 'N/A',
                             'phoneNumExt': (employeeData.details.phoneNumberExt) ? employeeData.details.phoneNumberExt : 'N/A',
@@ -101,7 +97,6 @@ Meteor.methods({
                         };
 
                         //template to us, to (employee), from (betagig), subject header, data
-                        // if( Meteor.isProduction ){
                         const defaultFrom = 'support@betagig.tech';
                         const from = Meteor.settings.private.emails.new_employee_via_company_admin.from || defaultFrom;
 
@@ -116,17 +111,17 @@ Meteor.methods({
 
                         // #2 - email company to confirm they have added employee
                         sendHtmlEmail(Meteor.user().emails[0].address, from, 'Betagig Action: Added Employee ', emailData, 'new_employee_added_company');
-                        // }
+
                         return ret;
                     });
                 }
                 return ret;
             });
+			
             return ret;
+			
         } catch (exception) {
-            console.log("Exception: ", exception);
             throw new Meteor.ValidationError('500', exception);
-            //throw new Meteor.Error('500', exception);
         }
     },
 
@@ -147,7 +142,7 @@ Meteor.methods({
                         last: data.user.lastName
                     }
                 },
-                //password: data.user.password, //NO PASSWORD - employee may have logged in and resetted it
+
                 emailAddress: data.user.email,
                 roles: data.user.roles,
                 agreements: data.user.agreements,
@@ -157,16 +152,15 @@ Meteor.methods({
             //Make call to create the user object
             Meteor.call('users.editProfile', userData, (error) => {
                 if (error) {
-                    console.log('Error - inside of employeeController - editProfile: ', error);
-                    console.log('error.reason', error.reason);
                     ret.type = "error";
                     ret.message = error;
                     let emailAlreadyExists = s.include(error.reason, "E11000");
-                    //error code E11000 - is a dupe key code
+                    
                     if (emailAlreadyExists) {
                         ret.message = "Email is already taken. Please provide another one!"
                     }
-                    //TODO add error
+                    
+					return ret;
                 }
 
                 if (!error && userData._id) {
@@ -189,7 +183,7 @@ Meteor.methods({
                     let adminOrEmployeeRole = (isCompanyAdmin) ? userRoles.companyAdmin : userRoles.employee;
 
                     Meteor.call('employees.update', employeeData, ( error, employeeId ) => {
-                        if( error ) {
+                        if (error) {
                             ret.title = 'Failed';
                             console.log("ERROR: ", error);
                             ret.message = error.reason;
@@ -213,7 +207,6 @@ Meteor.methods({
                             'id': userData._id
                         };
 
-                        // if( Meteor.isProduction ){
                         const defaultFrom = 'support@betagig.tech';
                         const from = Meteor.settings.private.emails.new_employee_via_company_admin.from || defaultFrom;
 
@@ -227,16 +220,16 @@ Meteor.methods({
 
                         // #2 - send out email to company here (you have updated an employee record)
                         sendHtmlEmail(Meteor.user().emails[0].address, from, 'Betagig Action: Employee Profile Changes', emailData, 'existing_employee_updated_company');
-                        // }
 
                         //ret.message = ret.message + "(EmployeeId: " + employeeId + ")";
                         return ret;
                     });
                 }
             });
+			
             return ret;
+			
         } catch (exception) {
-            // console.log("Exception: ", exception);
             throw new Meteor.Error('500', exception);
         }
     }

@@ -1,9 +1,3 @@
-/*
-created by: karina
-created date: 10/13/17
-*/
-
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid} from 'react-bootstrap';

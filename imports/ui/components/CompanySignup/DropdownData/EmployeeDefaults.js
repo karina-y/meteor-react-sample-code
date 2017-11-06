@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 9/7/17
-*/
-
 export function getEmployeeDefaultValues() {
     const employeeDefaultValues = {
         companyId: "",  //after company is created, send its id in with employeeobj to get created

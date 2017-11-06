@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 08/16/17
-*/
-
 import React from 'react';
 import './Index.less';
 import { Grid,

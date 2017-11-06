@@ -1,9 +1,3 @@
-/*
-created by: karina
-created date: 10/14/17
-*/
-
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import './ShadowBox.less';

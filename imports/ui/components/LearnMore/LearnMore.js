@@ -1,12 +1,3 @@
-/*
-created by: karina
-created date: 10/24/17
-*/
-
-/*
-- fix it so it takes images and text for both or one or whatever
- */
-
 import React from 'react';
 import {Grid, Col, Row, Image} from 'react-bootstrap';
 import { Bert } from 'meteor/themeteorchef:bert';
@@ -63,9 +54,8 @@ class LearnMore extends React.Component {
 
         let finalNote = "Best part? It’s 100% free to use the platform -- you only pay if you hire!";
 
-        //CONTENT NOT YET CREATED - CLIENT WILL BE DIRECTED TO COMPANY LANDING PAGE REGARDLESS OF USERTYPE INPUT TO ROUTE
         //if they're looking at candidate content, change it here
-        /*
+		//awaiting content from marketing - ky
         if (this.state.userRole === userRoles.candidate) {
             heroTitle = "LOREM IPSUM LATIN LATIN LATIN CANDIDATE";
             heroTagline = "hey there i'm a super engaging tagline, listen to me and all will be well";
@@ -92,8 +82,7 @@ class LearnMore extends React.Component {
 
             finalNote = "Best part is… it’s 100% free to use the platform, you only pay if you hire";
         }
-        */
-
+        
 
         return (
             <FullWidthBody size="lg" additionalOuterClasses="company-get-info">
@@ -102,17 +91,6 @@ class LearnMore extends React.Component {
                 <HeroBanner title={heroTitle} buttonText={heroButtonText} banner={heroBanner} />
 
                 <Grid>
-
-                    {/* quick info */}
-                    {/*<Row className="info-panel">
-                        <Col xs={12}>
-                            <p>{quickInfoOne}</p>
-
-                            <p>{quickInfoTwo}</p>
-                        </Col>
-                    </Row>*/}
-
-                    {/*<hr/>*/}
 
                     {/* panel one */}
                     {/* image left, text right */}

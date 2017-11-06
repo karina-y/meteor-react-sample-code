@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import Companies from '../Companies/Companies';

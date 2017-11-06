@@ -1,11 +1,3 @@
-/*
-created by: karina
-created date: 10/18/17
-*/
-
-//AN - 9/17/17 - Using this route ensures that the user is authenticated,
-//email is verified and all their user-signup steps are completed
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';

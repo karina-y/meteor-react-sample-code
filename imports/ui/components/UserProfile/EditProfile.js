@@ -100,6 +100,7 @@ class EditProfile extends React.Component {
                         isOnSignupView={false}
                     />;
                     break;
+				//features not yet implemented
                 // case EDIT_PROFILE_VIEWS_ENUM.referFriend:
                 //     activeProfileViewHeader = "Refer a Friend ($$$)";
                 //     activeProfileViewComponent = null; //TODO - insert 'referafriend' component here
@@ -112,6 +113,7 @@ class EditProfile extends React.Component {
         }
 
         //todo-else if employee do another switch case
+		//feature not yet implemented
 
         this.setState({
             activeProfileView: num,
@@ -179,28 +181,9 @@ class EditProfile extends React.Component {
         }
 
         //todo else if employee do a different one
+		//feature not yet implemented
 
         return(
-            //<Grid>
-            //<Row>
-            //{/*** TODO-Comment in sidenavbar block below after 'referFriend' and 'contactAdvocate' components are built out
-            //* Also, update <Col sm={12}></Col> below TO <Col sm={9}></Col>
-            //<Col sm={3} className="side-nav">
-            //<SideNavBar sideNavItemsArray={sideNavItemsArray}/>
-            //</Col>
-            //*/}
-            //<Col sm={12} className="main-content">
-            //<div className="profile-view-header-container">
-            //<h2>{this.state.activeProfileViewHeader}</h2>
-            //</div>
-            //{/* 'className - stepzilla-tabs is what gives the editProfile stepzilla, its tab/style */}
-            //<div className="profile-view-body-container stepzilla-tabs">
-            //{this.state.activeProfileViewComponent}
-            //</div>
-            //</Col>
-            //</Row>
-            //</Grid>
-
             <div>
                 {this.state.activeProfileViewComponent}
             </div>

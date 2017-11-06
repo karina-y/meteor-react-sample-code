@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 10/5/17
-*/
-
 import numeral from 'numeral';
 
 

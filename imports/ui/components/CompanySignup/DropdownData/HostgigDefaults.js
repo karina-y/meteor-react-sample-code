@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 9/14/17
-*/
-
 export function getHostgigDefaultValues() {
     const hostgigDefaultValues = {
         additionalDetails: "",
@@ -36,8 +31,6 @@ export function getHostgigDefaultValues() {
         targetMajor: [],
         workDays: [],
         workHours: [],
-
-        //todo-ky should this default to something better?
         gigExpirationDate: "",
         visaSponsorshipAvailable: false,
         address: {

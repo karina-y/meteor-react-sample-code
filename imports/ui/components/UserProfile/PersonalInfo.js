@@ -56,7 +56,8 @@ class PersonalInfo extends React.Component {
     }
 
     componentDidMount(){
-        this.props.updateCurrentStep(candidateSignupStepEnums.personalInfo.enum);        //keeping track of what step the user is on (on parent component
+		//keeping track of what step the user is on (on parent component
+        this.props.updateCurrentStep(candidateSignupStepEnums.personalInfo.enum);
     }
 
     setStateVariables(props) {
@@ -75,7 +76,6 @@ class PersonalInfo extends React.Component {
                 const convertedStatus = EnumConversionHelpers.enumToDisplayName(workAuthStatusEnums, currentWorkAuthStatus[0]);
 
                 if (convertedStatus.error) {
-                    //todo-ky error
                     Bert.alert("Woops something went wrong, please refresh and try again!", 'danger');
                 }
                 else {
@@ -258,10 +258,8 @@ class PersonalInfo extends React.Component {
 
         Meteor.call('utility.getTimezone', selectedObj.location.lat, selectedObj.location.lng, (error, response) => {
             if (error) {
-                //TODO add error
-                // console.log("BOOOO - something went wrong in getting the timezone", error);
+                Bert.alert("Woops something went wrong, please refresh and try again!", 'danger');
             } else {
-                // console.log(response, "WOMP THERE IT IS - returned response from google api call");
                 addressObj.timezoneId = response.data.timeZoneId;
                 this.setState({
                     address: addressObj

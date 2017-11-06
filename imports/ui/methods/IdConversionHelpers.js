@@ -1,8 +1,3 @@
-/*
-created by: karina
-created date: 10/11/17
-*/
-
 import { Meteor } from 'meteor/meteor';
 import Careers from '../../api/Careers/Careers';
 import NullChecks from './NullChecks';
